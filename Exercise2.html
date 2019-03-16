@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style>
+	div {
+		width: 300px;
+		height: 400px;
+		border:3px solid black;
+		text-align: center;
+		background: lightblue;
+		margin: 150px auto;
+		box-shadow: 0px 0px 30px blue;
+	}
+	form {
+		margin-top: 30px;
+		margin-bottom: 100px;
+		margin-left: 30px;
+		margin-right: 30px;
+	}
+	input {
+		font-size: 20px;
+		margin :2px;
+		color: navy;
+		width: 50px;
+		height: 40px;
+	}
+	.display{
+		width: 220px;
+		height: 30px;
+	}
+	h1 {
+		font-size: 20px;
+		text-align: center;
+		font-color:navy;
+	}
+	</style>
+		
+</head>
+<body>
+	
+	<div>
+		<h1>Calculator Online</h1>
+		<form>
+			<input type="text" class="display" id="display" disabled><br>
+
+			<input type="button" value="C" onclick="addtoscreen('c')">
+			<input type="button" value="<" onclick="backspace()">
+			<input type="button" value="+" onclick="addtoscreen('+')"><br>
+
+			<input type="button" value="9" onclick="addtoscreen('9')">
+			<input type="button" value="8" onclick="addtoscreen('8')">
+			<input type="button" value="7" onclick="addtoscreen('7')">
+			<input type="button" value="-" onclick="addtoscreen('-')"><br>
+
+			<input type="button" value="6" onclick="addtoscreen('6')">
+			<input type="button" value="5" onclick="addtoscreen('5')">
+			<input type="button" value="4" onclick="addtoscreen('4')">
+			<input type="button" value="x" onclick="addtoscreen('*')"><br>
+
+			<input type="button" value="3" onclick="addtoscreen('3')">
+			<input type="button" value="2" onclick="addtoscreen('2')">
+			<input type="button" value="1" onclick="addtoscreen('1')">
+			<input type="button" value="/" onclick="addtoscreen('/')"><br>
+
+			<input type="button" value="0" onclick="addtoscreen('0')">
+			<input type="button" value="." onclick="addtoscreen('.')">
+			<input type="button" value="=" onclick="answer()">
+
+		</form>
+	</div>
+<script>
+	var box=document.getElementById('display');
+
+	function addtoscreen(x)
+	{
+		box.value +=x;
+		if (x=='c') 
+		{
+			box.value='';
+
+		}
+	}
+	function answer ()
+	{
+		x=box.value;
+		x=eval(x);
+		box.value=x;
+	}
+
+	function backspace()
+	{
+		var number=box.value;
+		var len=number.length-1;
+		var newnumber=number.substring(0,len);
+		box.value=newnumber;
+	}
+
+
+</script>
+</body>
+</html>
